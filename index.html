@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="성장하는 개발자의 포트폴리오">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    @media (max-width: 768px) {
+      .navbar nav {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+      .glass-card {
+        padding: 1rem;
+      }
+      .skills-icons {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="video-bg">
+    <video src="assets/video/bg-video.mp4" autoplay loop muted playsinline></video>
+  </div>
+  <header class="navbar">
+    <div class="logo">My Portfolio</div>
+    <nav>
+      <a href="#hero" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="dark-mode-toggle">
+      <input type="checkbox" id="toggle-darkmode">
+      <label for="toggle-darkmode">Dark Mode</label>
+    </div>
+  </header>
+  <main>
+    <section id="hero" class="hero">
+      <h1 data-aos="fade-down">Welcome to My Portfolio</h1>
+      <p data-aos="fade-up">성장하는 개발자 JH입니다.</p>
+      <a href="#projects" class="glass-button" data-aos="zoom-in">프로젝트 살펴보기</a>
+      <div class="scroll-down">▼</div>
+    </section>
+    <section id="about" class="section" data-aos="fade-up">
+      <div class="glass-card">
+        <h2>About Me</h2>
+        <p>
+          안녕하세요. 사용자 중심의 경험을 설계하고 구현하는 <strong>풀스택 개발자 JH</strong>입니다.<br>
+          HTML, CSS, JavaScript, React, Node.js 등 다양한 기술 스택을 기반으로<br>
+          <strong>퍼포먼스 최적화</strong>와 <strong>UI/UX 개선</strong>에 집중하며, <strong>안정적인 코드와 구조 설계</strong>를 지향합니다.
+        </p>
+        <ul>
+          <li><strong>주요 기술</strong>: HTML, CSS, JavaScript, React, Node.js</li>
+          <li><strong>관심 분야</strong>: 웹 접근성(Accessibility), 성능 최적화(Performance), 대규모 컴포넌트 구조 설계, UI/UX 개선</li>
+        </ul>
+        <div class="about-links">
+          <a href="https://github.com/imhypeboy" class="glass-button">GitHub</a>
+          <a href="https://linkedin.com/in/username" class="glass-button">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+    <section id="skills" class="section" data-aos="fade-up">
+      <div class="glass-card">
+        <h2>Skills</h2>
+        <div class="skills-icons">
+          <img src="assets/icons/html.svg" alt="HTML">
+          <img src="assets/icons/css.svg" alt="CSS">
+          <img src="assets/icons/js.svg" alt="JavaScript">
+          <img src="assets/icons/react.svg" alt="React">
+          <img src="assets/icons/node.svg" alt="Node.js">
+          <img src="assets/icons/spring.svg" alt="Spring">
+        </div>
+      </div>
+    </section>
+    <section id="projects" class="section" data-aos="fade-up">
+      <div class="glass-card project-list">
+        <h2>My Projects</h2>
+        <p>아래는 제가 진행한 주요 프로젝트 목록입니다.</p>
+        <div class="projects">
+          <div class="project-card">
+            <h3>프로젝트 1</h3>
+            <p>설명 및 주요 기능</p>
+            <button class="glass-button">View Demo</button>
+          </div>
+          <div class="project-card">
+            <h3>프로젝트 2</h3>
+            <p>설명 및 주요 기능</p>
+            <button class="glass-button">GitHub</button>
+          </div>
+          <div class="project-card">
+            <h3>프로젝트 3</h3>
+            <p>설명 및 주요 기능</p>
+            <button class="glass-button">View Demo</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="contact" class="section" data-aos="fade-up">
+      <div class="glass-card">
+        <h2>Contact Me</h2>
+        <form action="https://formspree.io/f/yourFormID" method="POST">
+          <input type="text" name="name" placeholder="Your Name" required>
+          <input type="email" name="_replyto" placeholder="Your Email" required>
+          <textarea name="message" placeholder="Your Message" required></textarea>
+          <button type="submit" class="glass-button">Send</button>
+        </form>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>© 2025 My Portfolio</p>
+    <p>Contact: <a href="mailto:someone@example.com">someone@example.com</a></p>
+    <div class="social-icons">
+      <a href="https://github.com/imhypeboy">GitHub</a>
+      <a href="https://linkedin.com/in/username">LinkedIn</a>
+      <a href="https://twitter.com/username">Twitter</a>
+    </div>
+  </footer>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true,
+      mirror: false,
+      offset: 100
+    });
+
+    const toggleDark = document.getElementById('toggle-darkmode');
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      toggleDark.checked = true;
+    }
+    toggleDark.addEventListener('change', () => {
+      if (toggleDark.checked) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+      }
+    });
+
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.navbar nav a');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + entry.target.id) {
+              link.classList.add('active');
+            }
+          });
+        }
+      });
+    }, { threshold: 0.3 });
+    sections.forEach(sec => observer.observe(sec));
+  </script>
+</body>
+</html>
