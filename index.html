@@ -8,10 +8,33 @@
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
   <link rel="stylesheet" href="style.css">
   <style>
+    .logo a {
+      text-decoration: none;
+      color: var(--text-color);
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    .navbar {
+      padding: 1.2rem 3rem;
+      gap: 1rem;
+    }
+    .navbar nav {
+      gap: 2.5rem;
+      margin-left: auto;
+    }
     @media (max-width: 768px) {
       .navbar nav {
         flex-direction: column;
         gap: 0.5rem;
+        display: none;
+        background: rgba(0, 0, 0, 0.8);
+        width: 100%;
+        margin-top: 1rem;
+        padding: 1rem;
+        border-radius: 0 0 12px 12px;
+      }
+      .navbar nav.active {
+        display: flex;
       }
       .hero h1 {
         font-size: 1.8rem;
@@ -34,7 +57,12 @@
     <video src="assets/video/bg-video.mp4" autoplay loop muted playsinline></video>
   </div>
   <header class="navbar">
-    <div class="logo">My Portfolio</div>
+    <div class="logo"><a href="#hero">My Portfolio</a></div>
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
     <nav>
       <a href="#hero" class="active">Home</a>
       <a href="#about">About</a>
@@ -160,6 +188,11 @@
       }
     });
 
+    function toggleMenu() {
+      const nav = document.querySelector('.navbar nav');
+      nav.classList.toggle('active');
+    }
+
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('.navbar nav a');
     const observer = new IntersectionObserver((entries) => {
@@ -175,6 +208,14 @@
       });
     }, { threshold: 0.3 });
     sections.forEach(sec => observer.observe(sec));
+
+    // 로고 클릭 시 스크롤 이동 + active 처리
+    document.querySelector('.logo a').addEventListener('click', (e) => {
+      e.preventDefault();
+      document.querySelector('#hero').scrollIntoView({ behavior: 'smooth' });
+      navLinks.forEach(link => link.classList.remove('active'));
+      document.querySelector('a[href="#hero"]').classList.add('active');
+    });
   </script>
 </body>
 </html>
