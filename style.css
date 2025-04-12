@@ -1,4 +1,4 @@
-/* 기본 리셋 및 테마 변수 */
+/* JH저작권*/
 * {
   margin: 0;
   padding: 0;
@@ -363,3 +363,4 @@ footer {
 [data-theme="light"] .navbar nav a:hover {
   color: #000;
 }
+ 
