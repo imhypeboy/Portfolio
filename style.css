@@ -1,4 +1,4 @@
-/* 기본 리셋 및 테마 변수 */
+/* JH 최종본  */
 * {
   margin: 0;
   padding: 0;
@@ -54,7 +54,7 @@ html, body {
   background: var(--overlay-color);
 }
 
-/* 내비게이션 바 */
+/* 내비게이션 바 */ 
 .navbar {
   position: fixed;
   top: 0;
@@ -63,7 +63,7 @@ html, body {
   padding: 1rem 2rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center; /* 메뉴 가운데 정렬 */
   background: var(--bg-color);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -72,18 +72,23 @@ html, body {
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   z-index: 999;
   flex-wrap: wrap;
+  gap: 2rem; /* 요소 간격 */
 }
+
 .navbar .logo {
   font-size: 1.5rem;
   font-weight: bold;
   color: var(--text-color);
+  margin-right: auto; /* 왼쪽 정렬 */
 }
+
 .navbar nav {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 2rem;
 }
+
 .navbar nav a {
   color: var(--text-color);
   text-decoration: none;
@@ -91,9 +96,11 @@ html, body {
   transition: color 0.3s;
   padding-bottom: 2px;
 }
+
 .navbar nav a:hover {
   color: #e0e0e0;
 }
+
 .navbar nav a.active {
   border-bottom: 2px solid #fff;
 }
@@ -103,8 +110,9 @@ html, body {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  margin-left: auto;
+  margin-left: auto; /* 오른쪽 정렬 */
 }
+
 .dark-mode-toggle input {
   display: none;
 }
@@ -290,12 +298,21 @@ footer {
 
 /* 모바일 메뉴 반응형 및 라이트 모드 개선 */
 @media (max-width: 768px) {
+  .navbar {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 0;
+  }
+  .right-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: auto;
+  }
   .menu-toggle {
     display: flex;
-    position: absolute;
-    top: 1.2rem;
-    right: 1rem;
-    z-index: 1001;
+    position: static;
     flex-direction: column;
     gap: 5px;
   }
@@ -304,11 +321,6 @@ footer {
     height: 3px;
     background: var(--text-color);
     border-radius: 2px;
-  }
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-    border-radius: 0;
   }
   .navbar nav {
     display: none;
@@ -319,14 +331,19 @@ footer {
     padding: 1rem;
     background: var(--bg-color);
     border-radius: 12px;
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
   }
   .navbar nav.active {
     display: flex;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
   }
   .dark-mode-toggle {
-    width: 100%;
-    justify-content: flex-end;
-    margin-top: 0.5rem;
+    margin: 0;
   }
   .hero h1 {
     font-size: 2rem;
