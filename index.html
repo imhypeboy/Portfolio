@@ -45,6 +45,16 @@
   </style>
 </head>
 <body>
+<script>
+  document.addEventListener('keydown', (e) => {
+    if (e.ctrlKey && ['u', 's', 'c'].includes(e.key.toLowerCase())) {
+      e.preventDefault();
+    }
+  });
+</script>
+
+<body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
+
   <div class="video-bg">
     <video src="assets/video/bg-video.mp4" autoplay loop muted playsinline></video>
   </div>
@@ -147,7 +157,7 @@
   </main>
   <footer>
     <p>© 2025 My Portfolio</p>
-    <p>Contact: <a href="mailto:someone@example.com">someone@example.com</a></p>
+    <p>Contact: <a href="mailto:k14j15h@naver.com">k14j15h@naver.com</a></p>
     <div class="social-icons">
       <a href="https://github.com/imhypeboy">GitHub</a>
       <a href="https://linkedin.com/in/username">LinkedIn</a>
@@ -211,4 +221,3 @@
   </script>
 </body>
 </html>
-/*수정완료*/
